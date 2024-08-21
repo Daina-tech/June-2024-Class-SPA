@@ -2,6 +2,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import pizzas from "./routers/pizzas.js";
+
 // Initialize the Express application
 const app = express();
 
@@ -9,7 +11,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4040;
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO);
 
 const db = mongoose.connection;
 
@@ -92,6 +94,8 @@ app.get("/weather/:city", (request, response) => {
     city
   });
 });
+
+app.use("/pizzas", pizzas);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
