@@ -28,7 +28,7 @@ router.hooks({
   // https://github.com/krasimir/navigo/blob/master/DOCUMENTATION.md#match
   before: (done, match) => {
     // We need to know what view we are on to know what data to fetch
-    const view = match?.data?.view ? camelCase(match.data.view) : "home";
+    const view = match?.data?.view ? camelCase(match.data.view) : "home"
     // Add a switch case statement to handle multiple routes
     switch (view) {
       // Add a case for each view that needs data from an API
@@ -82,7 +82,7 @@ router.hooks({
   },
   after: (match) => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
-    
+
     router.updatePageLinks();
 
     if (view === "order") {
